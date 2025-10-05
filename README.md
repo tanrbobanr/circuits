@@ -1,6 +1,6 @@
 # Introduction
 
-This project is primarily used by myself to learn about integrated logic circuits. It allows for the simulation of PUN finFETs, vias, and interconnects, allowing for relatively complex standard- and macro-cells to be created.
+This project is primarily used by myself to learn about integrated logic circuits. It allows for the simulation of PUN finFETs, vias, and interconnects, allowing for relatively complex standard- and macro-cells to be simulated.
 
 # How it works
 
@@ -42,6 +42,8 @@ If we now set `B`'s state to `TRUE`, `callback_a` gets called with `state_change
 >>> via.set_state(id_object_b, True)
 A triggered (state_changed=False)
 ```
+
+A via is considered "energized" when one or both of its inputs are energized.
 
 A special `Cap` state effector is also available, which allows for easy interaction with vias from the user's side when needed.
 
@@ -134,7 +136,7 @@ Via[1 0]
 Via[0 0]
 ```
 
-## SignalInterfaces
+## `SignalInterface`s
 
 The `SignalInterface` is a helper class that allows for many vias' states to be set from a single integer. It is instantiated with an iterable containing multiple vias (which map from LSB to MSB), that can then be set from a single `set_signal` function, or accumulated with the `get_signal` function.
 
