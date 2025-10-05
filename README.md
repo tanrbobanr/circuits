@@ -174,6 +174,33 @@ Testing it with `0xa015785fb769250e` + `0x80000072f8710842` and `cin=True`, we e
 True
 ```
 
+An interactive version of this example is available in the `main.py` script.
+
+## State diagram
+
+A diagram of this cell's state can also be accessed with the `.state_diagram()` method. Legend:
+
+- `Gpg` - A PG generate cell with the outputs `p` and `g`.
+- `Xpg` - A PG full merge cell (aka black cell) with the outputs `p` and `g`.
+- `Yg` - A PG half merge cell (aka grey cell) with the output `g`.
+- `|n` - A buffer cell with the output `n`. In this case, buffer cells are just used to carry values from previous levels.
+- `Sn` - The final sum `n` for the respective bit.
+- `Cin` - The carry-in value `n`.
+- `Con` - The carry-out value `n`.
+
+Example 16-bit:
+
+![](./docs/images/ksa16r2cin_sd.png)
+
+Example 32-bit:
+
+![](./docs/images/ksa32r2cin_sd.png)
+
+Example 64-bit:
+
+![](./docs/images/ksa64r2cin_sd.png)
+
+
 # Running the tests
 
 All standard- and macro-cells are full tested. To run the tests, make sure pytest is installed, then simply run the `pytest` command in the project's root directory.
